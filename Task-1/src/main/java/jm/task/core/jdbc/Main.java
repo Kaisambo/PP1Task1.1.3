@@ -13,9 +13,6 @@ public class Main {
         User Dima =  new User("Dima", "Ivanov", (byte) 45);
         User Jalibek = new User("Jalibek", "Ju", (byte) 32);
 
-        Oleg.setId((long) 1L);
-        Dima.setId((long) 2L);
-        Jalibek.setId((long) 3L);
 
     try (Connection connection = Util.getConnection()) {
         if (connection != null) System.out.println("Connection established");
@@ -25,11 +22,9 @@ public class Main {
         statement.saveUser(Oleg.getName(), Oleg.getLastName(), Oleg.getAge());
         statement.saveUser(Dima.getName(), Dima.getLastName(), Dima.getAge());
         statement.saveUser(Jalibek.getName(), Jalibek.getLastName(), Jalibek.getAge());
-        statement.removeUserById(Oleg.getId());
-        //statement.removeUserById(Dima.getId());
-      //  statement.removeUserById(Jalibek.getId());
+        statement.removeUserById(1);
         System.out.println(statement.getAllUsers().toString());
-        statement.cleanUsersTable();
+        //statement.cleanUsersTable();
         }
     }
 }
